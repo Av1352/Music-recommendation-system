@@ -1,8 +1,8 @@
 from fer import FER
 import matplotlib.pyplot as plt 
-%matplotlib inline
+# %matplotlib inline
 
-test_image_one = plt.imread("Image-One.jpeg")
+test_image_one = plt.imread("data/test/angry/im0.png")
 emo_detector = FER(mtcnn=True)
 # Capture all the emotions on the image
 captured_emotions = emo_detector.detect_emotions(test_image_one)
