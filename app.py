@@ -1,6 +1,5 @@
 from flask import Flask
 from flask import render_template, request, url_for, redirect, session, make_response, flash
-import sqlite3 as lite
 import os
 import cv2
 
