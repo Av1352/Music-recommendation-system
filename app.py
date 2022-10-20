@@ -13,10 +13,21 @@ app_root = os.path.abspath(os.path.dirname(__file__))
 
 app.secret_key = os.urandom(10)
 
-@app.route('/')
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
 
-	return render_template('index.html')
+    return render_template('index.html')
+
+
+@app.route('/click')
+def click():
+	face.capture()
+	img = cv2.imread("user.png")
+	predictions = DeepFace.analyze(img)
+	print(predictions['dominant_emotion'])
+	return render_template('index.html', predictions=predictions['dominant_emotion'])
+    
 
 if __name__ == '__main__':
-	app.run(debug=True)
+    app.run(debug=True)
