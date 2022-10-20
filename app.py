@@ -1,29 +1,22 @@
+from flask import Flask
+from flask import render_template, request, url_for, redirect, session, make_response, flash
+import sqlite3 as lite
+import os
 import cv2
-from tkinter import *
-from PIL import Image, ImageTk
 
 from deepface import DeepFace
 from fer import FER
 import face_capture as face
 
-root = Tk()
+app = Flask(__name__)
+app_root = os.path.abspath(os.path.dirname(__file__))
 
-root.title("Welcome to Music Recommendation")
+app.secret_key = os.urandom(10)
 
-root.minsize(width=400, height=400)
-root.geometry("600x500")
+@app.route('/')
+def index():
 
-def clicked():
-    face.capture()    
-    img = cv2.imread("user.png")
-    predictions = DeepFace.analyze(img)
-    print(predictions['dominant_emotion'])
-    lbl.configure(text=predictions['dominant_emotion'])
+	return render_template('index.html')
 
-lbl = Label(root, text="What is your mood")
-lbl.grid()
-btn = Button(root, text="Click me",
-             fg="red", command=clicked)
-btn.grid(column=1, row=0)
-
-root.mainloop()
+if __name__ == '__main__':
+	app.run(debug=True)
