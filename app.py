@@ -24,9 +24,17 @@ def click():
 	face.capture()
 	img = cv2.imread("user.png")
 	predictions = DeepFace.analyze(img)
-	print(predictions['dominant_emotion'])
+	print(predictions)
+	
+	global emotion
+	emotion = predictions['dominant_emotion']
+	
 	return render_template('index.html', predictions=predictions['dominant_emotion'])
+	
     
+@app.route('/generate')
+def generate():
+	return render_template('generate.html', predictions=emotion)
 
 if __name__ == '__main__':
     app.run(debug=True)

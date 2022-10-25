@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Music Recommendation System</title>
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic&amp;display=swap"
+    />
+    <link rel="stylesheet" href="static/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="static/fonts/ionicons.min.css" />
+    <link rel="stylesheet" href="static/css/Bootstrap-Image-Uploader-1.css" />
+    <link rel="stylesheet" href="static/css/Bootstrap-Image-Uploader-2.css" />
+    <link rel="stylesheet" href="static/css/Bootstrap-Image-Uploader.css" />
+    <link rel="stylesheet" href="static/css/Features-Large-Icons-icons.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/Footer-Basic.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
+    />
+    <link rel="stylesheet" href="static/css/Login-Form-Dark-1.css" />
+    <link rel="stylesheet" href="static/css/Login-Form-Dark.css" />
+    <link rel="stylesheet" href="static/css/Registration-Form-with-Photo.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#page-top">Anju</a
+        ><button
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          class="navbar-toggler navbar-toggler-right"
+          type="button"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa fa-align-justify"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#login">Connect</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#signup">signup</a>
+            </li>
+            <li class="nav-item"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header
+      class="text-center text-white d-flex masthead"
+      data-bss-hover-animate="pulse"
+      style="
+        background: url('static/img/piano3.jpg'),
+          linear-gradient(62deg, white, black 46%), #ffffff;
+        background-size: cover, auto, auto;
+      "
+    >
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 col-xl-12 offset-xl-0 mx-auto">
+            <h1 class="text-uppercase">
+              <strong
+                >Music recommendation system based on emotion
+                recognition</strong
+              >
+            </h1>
+            <hr />
+          </div>
+        </div>
+        <div class="col-lg-8 col-xl-7 offset-xl-0 mx-auto">
+          <p
+            class="text-faded mb-5"
+            style="
+              margin: 0px 0px;
+              margin-bottom: 24px;
+              background: #16333708;
+              color: rgb(255, 255, 255);
+            "
+          >
+            We can help you find a playlist of songs that best suit your mood.
+          </p>
+          <a class="btn btn-primary btn-xl" role="button" href="#services"
+            >Generate playlist</a
+          >
+        </div>
+      </div>
+    </header>
+    <div class="main">
+      <div class="cont">
+        <div class="booking-content">
+          <div class="booking-form">
+            <form id="booking-form">
+              <h2>Just a few more steps!</h2>
+              <div class="form-group">
+                <p>Your mood is : {% for item in predictions %} {{item}} {% endfor %}</p>
+              </div>
+              
+              <div class="form-group">
+                <div class="select-list">
+                  <select name="food" id="food" required>
+                    <option value="">Select a Language</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Malayalam">Malayalam</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="Telugu">Telugu</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-radio">
+                <label class="label-radio">Number of songs in your playlist</label>
+                <div class="radio-item-list">
+                  <span class="radio-item">
+                    <input
+                      type="radio"
+                      name="number_play"
+                      value="4"
+                      id="number_play_4"
+                    />
+                    <label for="number_play_4">4</label>
+                  </span>
+                  <span class="radio-item active">
+                    <input
+                      type="radio"
+                      name="number_play"
+                      value="8"
+                      id="number_play_8"
+                      checked="checked"
+                    />
+                    <label for="number_play_8">8</label>
+                  </span>
+                  <span class="radio-item">
+                    <input
+                      type="radio"
+                      name="number_play"
+                      value="12"
+                      id="number_play_12"
+                    />
+                    <label for="number_play_12">12</label>
+                  </span>
+                  <span class="radio-item">
+                    <input
+                      type="radio"
+                      name="number_play"
+                      value="15"
+                      id="number_play_15"
+                    />
+                    <label for="number_play_15">15</label>
+                  </span>
+                  <span class="radio-item">
+                    <input
+                      type="radio"
+                      name="number_play"
+                      value="20"
+                      id="number_play_20"
+                    />
+                    <label for="number_play_20">20</label>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-submit">
+                <input
+                  type="submit"
+                  value="Generate Playlist"
+                  class="submit"
+                  id="submit"
+                  name="submit"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="static/js/creative.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/Bootstrap-Image-Uploader.js"></script>
+  </body>
+</html>
