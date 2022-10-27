@@ -18,9 +18,6 @@
     />
     <link rel="stylesheet" href="static/fonts/font-awesome.min.css" />
     <link rel="stylesheet" href="static/fonts/ionicons.min.css" />
-    <link rel="stylesheet" href="static/css/Bootstrap-Image-Uploader-1.css" />
-    <link rel="stylesheet" href="static/css/Bootstrap-Image-Uploader-2.css" />
-    <link rel="stylesheet" href="static/css/Bootstrap-Image-Uploader.css" />
     <link rel="stylesheet" href="static/css/Features-Large-Icons-icons.css" />
     <link rel="stylesheet" href="static/css/style.css" />
     <link rel="stylesheet" href="static/css/Footer-Basic.css" />
@@ -36,9 +33,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
     />
-    <link rel="stylesheet" href="static/css/Login-Form-Dark-1.css" />
-    <link rel="stylesheet" href="static/css/Login-Form-Dark.css" />
-    <link rel="stylesheet" href="static/css/Registration-Form-with-Photo.css" />
   </head>
 
   <body>
@@ -106,61 +100,98 @@
             We can help you find a playlist of songs that best suit your mood.
           </p>
           <a class="btn btn-primary btn-xl" role="button" href="#services"
-            >Generate playlist</a
+            >Generate Playlist</a
           >
         </div>
       </div>
+      </div>
     </header>
     <section class="details">
-		<div class="container text-center">
-			<div class="row full-height justify-text-center">
-				<div class="col-12">
-					<div class="section">
-						<div class="card-3d-wrap mx-auto">
-							<div class="card-3d-wrapper">
-								<div class="card-front">
-									<div class="center-wrap">
-										<div class="section text-center">
+      <h2 class="section-heading text-center">Just a few more things</h4>
+      <div class="cont1">
+        <div class="row full-height justify-text-center">
+          <div class="col-12">
+            <div class="section">
+              <div class="card-3d-wrap mx-auto">
+                <div class="card-3d-wrapper">
+                  <div class="card-front">
+                    <div class="center-wrap">
+                      <div class="section">
+                        <h4 class="section-heading text-center">Just a few more things</h4>
+                        <p>Your mood is : {% for item in predictions %} {{item}} {% endfor %}</p>
 
-											<h2 class="text-center">Just a few more things</h2>
+                        <select class="dropdown">
+                          <option value="">Select a Language</option>
+                          <option value="English">English</option>
+                          <option value="Hindi">Hindi</option>
+                          <option value="Korean">Korean</option>
+                          <option value="Malayalam">Malayalam</option>
+                          <option value="Tamil">Tamil</option>
+                          <option value="Telugu">Telugu</option>
+                        </select>
 
-                      <select class="dropdown">
-                        <option value="">Select a Language</option>
-                        <option value="English">English</option>
-                        <option value="Hindi">Hindi</option>
-                        <option value="Korean">Korean</option>
-                        <option value="Malayalam">Malayalam</option>
-                        <option value="Tamil">Tamil</option>
-                        <option value="Telugu">Telugu</option>
-                      </select>
-
-                      <div class="form-radio">
-                        <label class="label-radio">Number of songs in your playlist</label>
-                        <div class="radio-item-list">
-                          <span class="radio-item">
-                              <input type="radio" name="number_songs" value="4" id="number_songs_4" />
+                        <div class="form-radio">
+                          <label class="label-radio"
+                            >Number of songs in your playlist</label
+                          >
+                          <div class="radio-item-list">
+                            <span class="radio-item">
+                              <input
+                                type="radio"
+                                name="number_songs"
+                                value="4"
+                                id="number_songs_4"
+                              />
                               <label for="number_songs_4">4</label>
-                          </span>
-                          <span class="radio-item active">
-                            <input type="radio" name="number_songs" value="8" id="number_songs_8" checked="checked" />
-                            <label for="number_songs_8">8</label>
-                          </span>
-                          <span class="radio-item">
-                            <input type="radio" name="number_songs" value="12" id="number_songs_6" />
-                            <label for="number_songs_6">12</label>
-                          </span>
-                          <span class="radio-item">
-                              <input type="radio" name="number_songs" value="15" id="number_songs_15" />
+                            </span>
+                            <span class="radio-item active">
+                              <input
+                                type="radio"
+                                name="number_songs"
+                                value="8"
+                                id="number_songs_8"
+                                checked="checked"
+                              />
+                              <label for="number_songs_8">8</label>
+                            </span>
+                            <span class="radio-item">
+                              <input
+                                type="radio"
+                                name="number_songs"
+                                value="12"
+                                id="number_songs_6"
+                              />
+                              <label for="number_songs_6">12</label>
+                            </span>
+                            <span class="radio-item">
+                              <input
+                                type="radio"
+                                name="number_songs"
+                                value="15"
+                                id="number_songs_15"
+                              />
                               <label for="number_songs_15">15</label>
-                          </span>
-                          <span class="radio-item">
-                              <input type="radio" name="number_songs" value="20" id="number_songs_20" />
+                            </span>
+                            <span class="radio-item">
+                              <input
+                                type="radio"
+                                name="number_songs"
+                                value="20"
+                                id="number_songs_20"
+                              />
                               <label for="number_songs_20">20</label>
-                          </span>
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                      <div class="form-submit">
-                        <input type="submit" value="Generate Playlist" class="btn mt-4" id="submit" name="submit"/>
+                        <div class="form-submit">
+                          <input
+                            type="submit"
+                            value="Generate Playlist"
+                            class="btn mt-4"
+                            id="submit"
+                            name="submit"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -170,15 +201,26 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <script src="static/bootstrap/js/bootstrap.min.js"></script>
-  <script src="static/js/bs-init.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-  <script src="static/js/creative.js"></script>
-  <script src="static/js/main.js"></script>
-  <script src="static/js/jquery.min.js"></script>
-  <script src="static/js/Bootstrap-Image-Uploader.js"></script>
+    </section>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="static/js/creative.js"></script>
+
+    <script src="static/js/Bootstrap-Image-Uploader.js"></script>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='vendors/jQuery/jquery.min.js') }}"
+    ></script>
   </body>
 </html>

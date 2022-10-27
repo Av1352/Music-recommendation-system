@@ -34,7 +34,7 @@ def click():
     
 @app.route('/generate')
 def generate():
-	return render_template('generate.html', predictions=emotion)
-
+	return render_template('generate.html', predictions = emotion)
+	
 if __name__ == '__main__':
     app.run(debug=True)
