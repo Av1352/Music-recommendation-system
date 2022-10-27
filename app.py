@@ -12,12 +12,10 @@ app_root = os.path.abspath(os.path.dirname(__file__))
 
 app.secret_key = os.urandom(10)
 
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
     return render_template('index.html')
-
 
 @app.route('/click')
 def click():
@@ -31,10 +29,9 @@ def click():
 	
 	return render_template('index.html', predictions=predictions['dominant_emotion'])
 	
-    
 @app.route('/generate')
 def generate():
 	return render_template('generate.html', predictions = emotion)
-	
+
 if __name__ == '__main__':
     app.run(debug=True)
