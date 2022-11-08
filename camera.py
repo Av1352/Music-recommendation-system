@@ -14,8 +14,8 @@ from threading import Thread
 import Spotipy
 import time
 import pandas as pd
-emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fear",
-                    3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
+# emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fear",
+#                     3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 music_dist = {0: "songs/angry.csv", 1: "songs/disgusted.csv ", 2: "songs/fearful.csv",
                   3: "songs/happy.csv", 4: "songs/neutral.csv", 5: "songs/sad.csv", 6: "songs/surprised.csv"}
 show_text = [0]
@@ -41,10 +41,11 @@ def camera():
 	emotion_model.load_weights('model.h5')
 
 	cv2.ocl.setUseOpenCL(False)
-
-	
-
-	show_text = [0]
+	emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fear",
+                    3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
+	# music_dist = {0: "songs/angry.csv", 1: "songs/disgusted.csv ", 2: "songs/fearful.csv",
+    #               3: "songs/happy.csv", 4: "songs/neutral.csv", 5: "songs/sad.csv", 6: "songs/surprised.csv"}
+	# show_text = [0]
 	image = cv2.imread("user.png")
 	image = cv2.resize(image, (600, 500))
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -56,13 +57,18 @@ def camera():
 		cropped_img = np.expand_dims(np.expand_dims(
             cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
 		prediction = emotion_model.predict(cropped_img)
+		global maxindex
 		maxindex = int(np.argmax(prediction))
+		show_text[0]=maxindex
+		print(show_text)
 		print(emotion_dict[maxindex])
+		global emo
 		emo = emotion_dict[maxindex]
 		return emo
 
 def music_rec():
 	# print('---------------- Value ------------', music_dist[show_text[0]])
+	
 	df = pd.read_csv(music_dist[show_text[0]])
 	df = df[['Name','Album','Artist']]
 	df = df.head(15)

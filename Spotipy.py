@@ -38,72 +38,72 @@ Uncomment for fetching updated playlists
 '''
 
 
-track_ids = getTrackIDs('spotify',music_dist[0])
-track_list = []
-for i in range(len(track_ids)):
-    time.sleep(.3)
-    track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
-    df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
-    df.to_csv('songs/angry.csv')
-print("CSV Generated")
+# track_ids = getTrackIDs('spotify',music_dist[0])
+# track_list = []
+# for i in range(len(track_ids)):
+#     time.sleep(.3)
+#     track_data = getTrackFeatures(track_ids[i])
+#     track_list.append(track_data)
+#     df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
+#     df.to_csv('songs/angry.csv')
+# print("CSV Generated")
 
-track_ids = getTrackIDs('spotify',music_dist[1])
-track_list = []
-for i in range(len(track_ids)):
-    time.sleep(.3)
-    track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
-    df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
-    df.to_csv('songs/disgusted.csv')
-print("CSV Generated")
+# track_ids = getTrackIDs('spotify',music_dist[1])
+# track_list = []
+# for i in range(len(track_ids)):
+#     time.sleep(.3)
+#     track_data = getTrackFeatures(track_ids[i])
+#     track_list.append(track_data)
+#     df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
+#     df.to_csv('songs/disgusted.csv')
+# print("CSV Generated")
 
-track_ids = getTrackIDs('spotify',music_dist[2])
-track_list = []
-for i in range(len(track_ids)):
-    time.sleep(.3)
-    track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
-    df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
-    df.to_csv('songs/fearful.csv')
-print("CSV Generated")
+# track_ids = getTrackIDs('spotify',music_dist[2])
+# track_list = []
+# for i in range(len(track_ids)):
+#     time.sleep(.3)
+#     track_data = getTrackFeatures(track_ids[i])
+#     track_list.append(track_data)
+#     df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
+#     df.to_csv('songs/fearful.csv')
+# print("CSV Generated")
 
-track_ids = getTrackIDs('spotify',music_dist[3])
-track_list = []
-for i in range(len(track_ids)):
-    time.sleep(.3)
-    track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
-    df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
-    df.to_csv('songs/happy.csv')
-print("CSV Generated")
+# track_ids = getTrackIDs('spotify',music_dist[3])
+# track_list = []
+# for i in range(len(track_ids)):
+#     time.sleep(.3)
+#     track_data = getTrackFeatures(track_ids[i])
+#     track_list.append(track_data)
+#     df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
+#     df.to_csv('songs/happy.csv')
+# print("CSV Generated")
 
-track_ids = getTrackIDs('spotify',music_dist[4])
-track_list = []
-for i in range(len(track_ids)):
-    time.sleep(.3)
-    track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
-    df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
-    df.to_csv('songs/neutral.csv')
-print("CSV Generated")
+# track_ids = getTrackIDs('spotify',music_dist[4])
+# track_list = []
+# for i in range(len(track_ids)):
+#     time.sleep(.3)
+#     track_data = getTrackFeatures(track_ids[i])
+#     track_list.append(track_data)
+#     df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
+#     df.to_csv('songs/neutral.csv')
+# print("CSV Generated")
 
-track_ids = getTrackIDs('spotify',music_dist[5])
-track_list = []
-for i in range(len(track_ids)):
-    time.sleep(.3)
-    track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
-    df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
-    df.to_csv('songs/sad.csv')
-print("CSV Generated")
+# track_ids = getTrackIDs('spotify',music_dist[5])
+# track_list = []
+# for i in range(len(track_ids)):
+#     time.sleep(.3)
+#     track_data = getTrackFeatures(track_ids[i])
+#     track_list.append(track_data)
+#     df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
+#     df.to_csv('songs/sad.csv')
+# print("CSV Generated")
 
-track_ids = getTrackIDs('spotify',music_dist[6])
-track_list = []
-for i in range(len(track_ids)):
-    time.sleep(.3)
-    track_data = getTrackFeatures(track_ids[i])
-    track_list.append(track_data)
-    df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
-    df.to_csv('songs/surprised.csv')
-print("CSV Generated")
+# track_ids = getTrackIDs('spotify',music_dist[6])
+# track_list = []
+# for i in range(len(track_ids)):
+#     time.sleep(.3)
+#     track_data = getTrackFeatures(track_ids[i])
+#     track_list.append(track_data)
+#     df = pd.DataFrame(track_list, columns = ['Name','Album','Artist']) # ,'Release_date','Length','Popularity'
+#     df.to_csv('songs/surprised.csv')
+# print("CSV Generated")

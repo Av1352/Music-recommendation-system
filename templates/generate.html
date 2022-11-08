@@ -99,13 +99,14 @@
           >
             We can help you find a playlist of songs that best suit your mood.
           </p>
-          <a class="btn btn-primary btn-xl" role="button" href="#services"
+          <!-- <a class="btn btn-primary btn-xl" role="button" href="#services"
             >Generate Playlist</a
-          >
+          >-->
         </div>
       </div>
       </div>
     </header>
+    <p>{{data}}</p>
     <!-- <section class="details">
       <h2 class="section-heading text-center">Just a few more things</h4>
       <div class="cont1">
@@ -219,8 +220,26 @@
       type="text/javascript"
       src="{{ url_for('static', filename='vendors/jQuery/jquery.min.js') }}"
     ></script> -->
+    <!-- <div class ="outer-shadow" id="ResultArea" style="
+        padding: 15px;
+        width: 49%;
+        float: left;
+        height: 100%%;
+        margin: auto;
+        text-align: center;
+        margin-bottom:15px;
+      ">
+    </div>
+  </body>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type=text/javascript>
+setInterval(function() {
+        $.getJSON('/t', function(data) {
+            CreateHtmlTable(data);
+            console.log(data,"DATA");
+          });
+        return false;
+    }, 100);
 function CreateHtmlTable(data) {
       //Clear result div
       $("#ResultArea").html("");
@@ -244,7 +263,7 @@ function CreateHtmlTable(data) {
       });
     }
 
-  </script>
+  </script> -->
 
-  </body>
+  
 </html>

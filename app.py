@@ -12,9 +12,7 @@ app_root = os.path.abspath(os.path.dirname(__file__))
 
 app.secret_key = os.urandom(10)
 
-headings = ("Name","Album","Artist")
-df1 = camera.music_rec()
-df1 = df1.head(15)
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -35,11 +33,14 @@ def click():
 	emotion = prediction
 	
 	return render_template('index.html', item=prediction)
-	
+
 @app.route('/generate')
 def gen_table():
-    return df1.to_json(orient='records')
-
+	headings = ("Name","Album","Artist")
+	df1 = camera.music_rec()
+	df1 = df1.head(15)	
+	print(df1.to_json(orient='records'))
+	return render_template('generate.html', headings=headings, data=df1)
 
 
 if __name__ == '__main__':
