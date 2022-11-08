@@ -37,50 +37,26 @@ cv2.ocl.setUseOpenCL(False)
 
 emotion_dict = {0:"Angry",1:"Disgusted",2:"Fearful",3:"Happy",4:"Neutral",5:"Sad",6:"Surprised"}
 music_dist={0:"songs/angry.csv",1:"songs/disgusted.csv ",2:"songs/fearful.csv",3:"songs/happy.csv",4:"songs/neutral.csv",5:"songs/sad.csv",6:"songs/surprised.csv"}
-global last_frame1                                    
-last_frame1 = np.zeros((480, 640, 3), dtype=np.uint8)
-global cap1 
+                                  
 show_text=[0]
 
+image = cv2.imread("user.png")
+image=cv2.resize(image,(600,500))
+gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+face_rects=face_cascade.detectMultiScale(gray,1.3,5)
+df1 = pd.read_csv(music_dist[show_text[0]])
+df1 = df1[['Name','Album','Artist']]
+df1 = df1.head(15)
+for (x,y,w,h) in face_rects:
+	cv2.rectangle(image,(x,y-50),(x+w,y+h+10),(0,255,0),2)
+	roi_gray_frame = gray[y:y + h, x:x + w]
+	cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
+	prediction = emotion_model.predict(cropped_img)
+	print(prediction)
 
-''' Class for reading video stream, generating prediction and recommendations '''
-class VideoCamera(object):
-	
-	def get_frame(self):
-		global cap1
-		global df1
-		cap1 = WebcamVideoStream(src=0).start()
-		image = cap1.read()
-		image=cv2.resize(image,(600,500))
-		gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-		face_rects=face_cascade.detectMultiScale(gray,1.3,5)
-		df1 = pd.read_csv(music_dist[show_text[0]])
-		df1 = df1[['Name','Album','Artist']]
-		df1 = df1.head(15)
-		for (x,y,w,h) in face_rects:
-			cv2.rectangle(image,(x,y-50),(x+w,y+h+10),(0,255,0),2)
-			roi_gray_frame = gray[y:y + h, x:x + w]
-			cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
-			prediction = emotion_model.predict(cropped_img)
-
-			maxindex = int(np.argmax(prediction))
-			show_text[0] = maxindex 
-			#print("===========================================",music_dist[show_text[0]],"===========================================")
-			#print(df1)
-			cv2.putText(image, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
-			df1 = music_rec()
-			
-		global last_frame1
-		last_frame1 = image.copy()
-		pic = cv2.cvtColor(last_frame1, cv2.COLOR_BGR2RGB)     
-		img = Image.fromarray(last_frame1)
-		img = np.array(img)
-		ret, jpeg = cv2.imencode('.jpg', img)
-		return jpeg.tobytes(), df1
-
-def music_rec():
-	# print('---------------- Value ------------', music_dist[show_text[0]])
-	df = pd.read_csv(music_dist[show_text[0]])
-	df = df[['Name','Album','Artist']]
-	df = df.head(15)
-	return df
+# def music_rec():
+# 	# print('---------------- Value ------------', music_dist[show_text[0]])
+# 	df = pd.read_csv(music_dist[show_text[0]])
+# 	df = df[['Name','Album','Artist']]
+# 	df = df.head(15)
+# 	return df
