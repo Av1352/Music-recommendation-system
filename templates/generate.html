@@ -110,8 +110,8 @@
       {% for item in data %}
       <TR>
         
-         <TD class="c2">{{data.name}</TD>
-         <TD class="c3">{{data.album}}</TD>
+         <TD class="c2">{{item.name}}</TD>
+         <TD class="c3">{{item.album}}</TD>
          <TD class="c4"><SPAN>{{item.artist}}</SPAN></TD>
          
       </TR>
@@ -210,8 +210,19 @@
           </div>
         </div>
       </div>
-    </section>
-    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+      
+    </section>-->
+    <div class ="outer-shadow" id="ResultArea" style="
+        padding: 15px;
+        width: 49%;
+        float: left;
+        height: 100%%;
+        margin: auto;
+        text-align: center;
+        margin-bottom:15px;
+      ">
+    </div>
+    <!-- <script src="static/bootstrap/js/bootstrap.min.js"></script>
     <script src="static/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
@@ -230,19 +241,10 @@
     <script
       type="text/javascript"
       src="{{ url_for('static', filename='vendors/jQuery/jquery.min.js') }}"
-    ></script> -->
-    <!-- <div class ="outer-shadow" id="ResultArea" style="
-        padding: 15px;
-        width: 49%;
-        float: left;
-        height: 100%%;
-        margin: auto;
-        text-align: center;
-        margin-bottom:15px;
-      ">
-    </div>
+    ></script>  -->
+     
   </body>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--> 
 <script type=text/javascript>
 setInterval(function() {
         $.getJSON('/t', function(data) {
@@ -274,7 +276,7 @@ function CreateHtmlTable(data) {
       });
     }
 
-  </script> -->
+  </script> 
 
   
 </html>

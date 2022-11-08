@@ -40,7 +40,8 @@ def gen_table():
 	df1 = camera.music_rec()
 	df1 = df1.head(15)	
 	print(df1.to_json(orient='records'))
-	return render_template('generate.html', headings=headings, data=df1)
+	data = df1.to_json(orient='records')
+	return render_template('generate.html', data=data)
 
 
 if __name__ == '__main__':
