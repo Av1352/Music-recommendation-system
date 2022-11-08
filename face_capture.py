@@ -8,7 +8,6 @@ faceCascade = cv2.CascadeClassifier(
 
 video_capture = cv2.VideoCapture(0)
 
-
 def capture():
     while True:
         if not video_capture.isOpened():
