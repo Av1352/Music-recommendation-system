@@ -39,9 +39,9 @@ def gen_table():
 	headings = ("Name","Album","Artist")
 	df1 = camera.music_rec()
 	df1 = df1.head(15)	
-	print(df1.to_json(orient='table'))
-	data = df1.to_json(orient='table')
-	return render_template('generate.html', data=data)
+	# print(df1.to_json(orient='table'))
+	# data = df1.to_json(orient='table')
+	return render_template('generate.html', data=df1)
 
 
 if __name__ == '__main__':
