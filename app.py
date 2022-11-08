@@ -3,7 +3,6 @@ from flask import render_template, request, url_for, redirect, session, make_res
 import os
 import cv2
 
-# from deepface import DeepFace
 from fer import FER
 import face_capture as face
 import camera as camera
@@ -22,14 +21,16 @@ def index():
 def click():
 	face.capture()
 	img = cv2.imread("user.png")
-
-	predictions = DeepFace.analyze(img)
-	print(predictions)
+	
+	# predictions = DeepFace.analyze(img)
+	# print(predictions)
+	prediction = camera.camera()
+	print(prediction)
 	
 	global emotion
-	emotion = predictions['dominant_emotion']
+	emotion = prediction
 	
-	return render_template('index.html', predictions=predictions['dominant_emotion'])
+	return render_template('index.html', item=prediction)
 	
 @app.route('/generate')
 def gen_table():
