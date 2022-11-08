@@ -14,7 +14,7 @@ from threading import Thread
 # from Spotipy import *  
 import time
 import pandas as pd
-face_cascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+face_cascade=cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 ds_factor=0.6
 
 emotion_model = Sequential()
@@ -31,12 +31,12 @@ emotion_model.add(Flatten())
 emotion_model.add(Dense(1024, activation='relu'))
 emotion_model.add(Dropout(0.5))
 emotion_model.add(Dense(7, activation='softmax'))
-emotion_model.load_weights('model.h5')
+emotion_model.load_weights('kadavule\model.h5')
 
 cv2.ocl.setUseOpenCL(False)
 
 emotion_dict = {0:"Angry",1:"Disgusted",2:"Fearful",3:"Happy",4:"Neutral",5:"Sad",6:"Surprised"}
-music_dist={0:"songs/angry.csv",1:"songs/disgusted.csv ",2:"songs/fearful.csv",3:"songs/happy.csv",4:"songs/neutral.csv",5:"songs/sad.csv",6:"songs/surprised.csv"}
+music_dist={0:"kadavule/songs/angry.csv",1:"kadavule/songs/disgusted.csv ",2:"kadavule/songs/fearful.csv",3:"kadavule/songs/happy.csv",4:"kadavule/songs/neutral.csv",5:"kadavule/songs/sad.csv",6:"kadavule/songs/surprised.csv"}
 global last_frame1                                    
 last_frame1 = np.zeros((480, 640, 3), dtype=np.uint8)
 global cap1 
