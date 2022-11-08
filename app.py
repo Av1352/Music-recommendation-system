@@ -32,8 +32,8 @@ def click():
 	return render_template('index.html', predictions=predictions['dominant_emotion'])
 	
 @app.route('/generate')
-def generate():
-	return render_template('generate.html', predictions = emotion)
+def gen_table():
+    return df1.to_json(orient='records')
 
 if __name__ == '__main__':
     app.run(debug=True)
