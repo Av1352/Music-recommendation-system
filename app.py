@@ -6,7 +6,9 @@ import cv2
 # from deepface import DeepFace
 from fer import FER
 import face_capture as face
-
+headings = ("Name","Album","Artist")
+df1 = music_rec()
+df1 = df1.head(15)
 app = Flask(__name__)
 app_root = os.path.abspath(os.path.dirname(__file__))
 
@@ -31,8 +33,8 @@ def click():
 	return render_template('index.html', predictions=predictions['dominant_emotion'])
 	
 @app.route('/generate')
-def generate():
-	return render_template('generate.html', predictions = emotion)
+def gen_table():
+    return df1.to_json(orient='records')
 
 if __name__ == '__main__':
     app.run(debug=True)
