@@ -11,11 +11,14 @@ from pandastable import Table, TableModel
 from tensorflow.keras.preprocessing import image
 import datetime
 from threading import Thread
-
+import Spotipy
 import time
 import pandas as pd
-
-
+emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fear",
+                    3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
+music_dist = {0: "songs/angry.csv", 1: "songs/disgusted.csv ", 2: "songs/fearful.csv",
+                  3: "songs/happy.csv", 4: "songs/neutral.csv", 5: "songs/sad.csv", 6: "songs/surprised.csv"}
+show_text = [0]
 def camera():
 	face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
@@ -39,10 +42,7 @@ def camera():
 
 	cv2.ocl.setUseOpenCL(False)
 
-	emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fear",
-                    3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
-	music_dist = {0: "songs/angry.csv", 1: "songs/disgusted.csv ", 2: "songs/fearful.csv",
-                  3: "songs/happy.csv", 4: "songs/neutral.csv", 5: "songs/sad.csv", 6: "songs/surprised.csv"}
+	
 
 	show_text = [0]
 	image = cv2.imread("user.png")
@@ -61,6 +61,12 @@ def camera():
 		emo = emotion_dict[maxindex]
 		return emo
 
+def music_rec():
+	# print('---------------- Value ------------', music_dist[show_text[0]])
+	df = pd.read_csv(music_dist[show_text[0]])
+	df = df[['Name','Album','Artist']]
+	df = df.head(15)
+	return df
 
 if __name__ == '__main__':
     camera()
