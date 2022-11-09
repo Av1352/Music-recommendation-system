@@ -46,6 +46,8 @@ def gen_table():
 	# 	i = df1(i)
 	# 	an_item = dict(df1.name, df1.artist ,df1.album)
 	# 	items.append(an_item)
+	titles = df1.columns.values
+	print(titles)
 	return render_template('generate.html', tables=[df1.to_html(classes='data')], titles=df1.columns.values)
 
 
