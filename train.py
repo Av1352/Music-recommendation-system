@@ -1,8 +1,9 @@
 from keras.models import Sequential
+from keras.datasets import mnist
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D
 from keras.layers import MaxPooling2D
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 from keras.preprocessing.image import ImageDataGenerator
 
 train_dir = 'data/train'
@@ -25,6 +26,8 @@ val_generator = val_datagen.flow_from_directory(
     color_mode = "grayscale",
     class_mode = 'categorical'
 )
+
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
 
 emotion_model = Sequential()
 
@@ -55,3 +58,7 @@ emotion_model_info = emotion_model.fit_generator(
 )
 
 emotion_model.save_weights('model.h5')
+
+score = emotion_model.evaluate(X_test, y_test, verbose=0)
+print('Test loss:', score[0])
+print('Test accuracy:', score[1])

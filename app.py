@@ -14,7 +14,6 @@ app_root = os.path.abspath(os.path.dirname(__file__))
 app.secret_key = os.urandom(10)
 
 
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
