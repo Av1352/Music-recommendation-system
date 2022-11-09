@@ -104,9 +104,24 @@
       </div>
       </div>
     </header>
-    <section>
-      {% for table in tables %}
-      <table class="table">        
+    <div class="table">
+      <div class="table-header">
+        <div class="header__item"><a id="name" class="filter__link" href="#">NAME</a></div>
+        <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">ALBUM</a></div>
+        <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">ARTIST</a></div>
+      </div>
+      <div class="table-row">		
+        {% for item in data %}
+				<div class="table-data">{{item.name}}</div>
+				<div class="table-data">{{item.album}}</div>
+				<div class="table-data">{{item.artist}}</div>
+			</div>
+			{%endfor%}
+		</div>	
+	</div>
+</div>
+      <!-- {% for table in tables %}
+      <table class="table-content">        
           <tr>          
             <th scope="col">{{titles[loop.index]}}</th>
           </tr>
@@ -114,7 +129,7 @@
           <tr>
             <td>{{ table|safe }}</td>
           </tr>
-        {% endfor %}
+        {% endfor %} -->
 
       
     

@@ -39,17 +39,17 @@ def click():
 def gen_table():
 	#headings = ("Name","Album","Artist")
 	df1 = camera.music_rec()
-	df1.to_html(header="true", table_id="table")
-	# df1 = df1.head(15)	
+	df1 = df1.head(15)	
+	print(df1)
 	# items = []
 	# for i in range(1, 11):
 	# 	i = df1(i)
 	# 	an_item = dict(df1.name, df1.artist ,df1.album)
 	# 	items.append(an_item)
-	titles = df1.columns.values
-	print(titles)
-	return render_template('generate.html', tables=[df1.to_html(classes='data')], titles=df1.columns.values)
-
-
+	# titles = df1.columns.values
+	# print(titles)
+	return render_template('generate.html', data = df1)
+# tables=[df1.to_html(classes='data')]
+# df1.to_html(header="true", table_id="table")
 if __name__ == '__main__':
     app.run(debug=True)
