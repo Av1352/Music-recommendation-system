@@ -54,7 +54,8 @@ def gen_table():
     # 	an_item = dict(df1.name, df1.artist ,df1.album)
     # 	items.append(an_item)
     # titles = df1.columns.values
-    # print(titles)
+    # print(titles) 
+	
     return render_template('generate.html', name=name, album=album, artist=artist)
 
 
