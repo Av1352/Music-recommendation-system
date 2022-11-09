@@ -3,6 +3,7 @@ from flask import render_template, request, url_for, redirect, session, make_res
 import os
 import cv2
 import pandas as pd
+from pandas import DataFrame , read_csv
 from fer import FER
 import face_capture as face
 import camera as camera
@@ -36,12 +37,16 @@ def click():
 
 @app.route('/generate')
 def gen_table():
-	headings = ("Name","Album","Artist")
+	#headings = ("Name","Album","Artist")
 	df1 = camera.music_rec()
-	df1 = df1.head(15)	
-	# print(df1.to_json(orient='table'))
-	# data = df1.to_json(orient='table')
-	return render_template('generate.html', data=df1)
+	df1.to_html(header="true", table_id="table")
+	# df1 = df1.head(15)	
+	# items = []
+	# for i in range(1, 11):
+	# 	i = df1(i)
+	# 	an_item = dict(df1.name, df1.artist ,df1.album)
+	# 	items.append(an_item)
+	return render_template('generate.html', tables=[df1.to_html(classes='data')], titles=df1.columns.values)
 
 
 if __name__ == '__main__':
