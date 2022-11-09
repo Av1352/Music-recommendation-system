@@ -70,7 +70,7 @@ def music_rec():
 	# print('---------------- Value ------------', music_dist[show_text[0]])
 	
 	df = pd.read_csv(music_dist[show_text[0]])
-	df = df[['Index','Name','Album','Artist']]
+	df = df[['Name','Album','Artist']]
 	df = df.head(15)
 	return df
 
