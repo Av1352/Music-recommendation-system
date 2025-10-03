@@ -3,18 +3,16 @@
 A real-time music playlist recommender leveraging facial emotion recognition. Users are suggested playlists based on their detected mood via webcam, powered by deep learning.
 
 ## 🚩 Overview
+
 Combining computer vision and music informatics, this project predicts user emotion from facial micro-expressions and recommends dynamic playlists tailored to their mood.
 
 ## 📊 Key Features
-Real-time face capture and FER (Facial Emotion Recognition) using OpenCV
 
-CNN-based emotion classifier trained on [name] dataset
-
-Personalized music recommendation using Spotify API and custom playlists
-
-Research-backed algorithm—includes published paper in repository
-
-Flask web app interface (responsive UI)
+- Real-time face capture and FER (Facial Emotion Recognition) using OpenCV
+- CNN-based emotion classifier trained on custom dataset
+- Personalized music recommendation using Spotify API and custom playlists
+- Research-backed algorithm—includes published paper in repository
+- Flask web app interface (responsive UI)
 
 ## 🛠 Technologies Used
 
