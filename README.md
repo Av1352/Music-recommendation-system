@@ -27,7 +27,8 @@ Flask web app interface (responsive UI)
 - HTML5/CSS3/JS (front-end)
 
 ## 📁 Project Structure
-bash
+
+```
 music-recommendation-system/
 ├── app.py                # Web app controller
 ├── face_capture.py       # Webcam image capture
@@ -42,7 +43,7 @@ music-recommendation-system/
 │   ├── review_3.pdf      # Peer review
 │   └── plagiarism_report.pdf
 └── README.md
-
+```
 
 ## 🚀 Getting Started
 
