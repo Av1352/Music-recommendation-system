@@ -2,6 +2,16 @@
 
 A real-time music playlist recommender leveraging facial emotion recognition. Users are suggested playlists based on their detected mood via webcam, powered by deep learning.
 
+- **🟦 Try it live:** [music-rec-system.streamlit.app](https://music-rec-system.streamlit.app)
+- Upload a face photo or use webcam (in supported browsers)
+- Get an instant playlist for your detected emotion!
+
+## 🚀 Live Demo Usage
+
+1. **Upload your face photo** _(jpg/png)_, or use **webcam** to capture one.
+2. The app detects your emotion using a trained CNN.
+3. Instantly get a Spotify-style playlist matched to your mood.
+
 ## 🚩 Overview
 
 Combining computer vision and music informatics, this project predicts user emotion from facial micro-expressions and recommends dynamic playlists tailored to their mood.
@@ -35,6 +45,7 @@ music-recommendation-system/
 ├── templates/            # HTML for flask
 ├── songs/                # CSV music playlists by emotion
 ├── data/                 # Training images, metadata
+├── streamlit_app.py   # Portfolio/demo app for recruiters (Streamlit)
 ├── requirements.txt      # Dependencies
 ├── research/
 │   ├── paper.pdf         # Published work
